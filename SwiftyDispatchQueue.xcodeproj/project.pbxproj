@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8D72E341F63036C00534978 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D72E331F63036C00534978 /* Counter.swift */; };
 		C8D82E621F61B0E30078D6CD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D82E611F61B0E30078D6CD /* main.swift */; };
 		C8D82E6A1F61B10D0078D6CD /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D82E681F61B10D0078D6CD /* DispatchQueue.swift */; };
 		C8D82E6B1F61B10D0078D6CD /* ThreadPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D82E691F61B10D0078D6CD /* ThreadPool.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C8D72E331F63036C00534978 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		C8D82E5E1F61B0E30078D6CD /* SwiftyDispatchQueue */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftyDispatchQueue; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D82E611F61B0E30078D6CD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C8D82E681F61B10D0078D6CD /* DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 		C8D72E371F63097E00534978 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				C8D72E331F63036C00534978 /* Counter.swift */,
 				C8D82E6C1F61D34C0078D6CD /* Type.swift */,
 			);
 			name = Helper;
@@ -143,6 +146,7 @@
 			files = (
 				C8D82E6A1F61B10D0078D6CD /* DispatchQueue.swift in Sources */,
 				C8D82E6B1F61B10D0078D6CD /* ThreadPool.swift in Sources */,
+				C8D72E341F63036C00534978 /* Counter.swift in Sources */,
 				C8D82E6F1F61DA2F0078D6CD /* Lock+Convenient.swift in Sources */,
 				C8D82E621F61B0E30078D6CD /* main.swift in Sources */,
 				C8D82E6D1F61D34C0078D6CD /* Type.swift in Sources */,
