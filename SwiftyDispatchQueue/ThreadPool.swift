@@ -14,7 +14,7 @@ class ThreadPool: ThreadPoolType {
     
     let locker = Condition()
     
-    let threadCountLimit  = 1
+    let threadCountLimit  = 100
     var threadCount       = 0
     var activeThreadCount = 0
     
