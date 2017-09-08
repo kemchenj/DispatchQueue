@@ -24,8 +24,11 @@ func test(name: String, block: () -> Void) {
     block()
     
     var message = "<\(name)> Done running test "
-    message += (failuresCounter.value > 0) ? "Failure" : "Success"
-    message += ", \(failuresCounter.value) failures\n"
+    message += (failuresCounter.value > 0) ? "Failure ❌" : "Success ✅"
+    if failuresCounter.value > 0 {
+        message += ", \(failuresCounter.value) failures"
+    }
+    message += "\n"
     
     print(message)
 }
