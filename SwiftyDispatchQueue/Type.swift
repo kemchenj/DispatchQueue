@@ -16,6 +16,6 @@ typealias Date          = Foundation.Date
 
 typealias DispatchBlock = () -> Void
 
-func usleep(_ seconds: useconds_t) {
-    _ = Foundation.usleep(seconds)
+func sleep(_ seconds: Double) {
+    _ = Foundation.usleep(useconds_t(seconds * 1000000))
 }

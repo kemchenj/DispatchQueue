@@ -55,7 +55,7 @@ func test() {
         let queue = DispatchQueue(serial: true)
         var done = false
         queue.sync {
-            usleep(500000)
+            sleep(0.5)
             done = true
         }
         assert(done)
@@ -65,7 +65,7 @@ func test() {
         let queue = DispatchQueue(serial: false)
         
         queue.async {
-            usleep(500000)
+            sleep(0.5)
         }
         
         let activeCounter = Counter()
@@ -78,7 +78,7 @@ func test() {
                 
                 maxActiveCount = max(activeCounter.value, maxActiveCount)
                 
-                usleep(100)
+                sleep(0.00001)
                 
                 activeCounter.decrement()
                 
@@ -98,7 +98,7 @@ func test() {
         let queue = DispatchQueue(serial: false)
         
         queue.async {
-            usleep(500000)
+            sleep(0.5)
         }
         
         let activeCounter = Counter()
@@ -111,7 +111,7 @@ func test() {
                 
                 maxActiveCount = max(activeCounter.value, maxActiveCount)
                 
-                usleep(100)
+                sleep(0.0001)
                 
                 activeCounter.decrement()
                 
@@ -120,7 +120,7 @@ func test() {
         }
         
         while totalRunCounter.value < 10000 {
-            usleep(1000)
+            sleep(0.001)
         }
         
         assert(maxActiveCount > 1)
@@ -137,7 +137,7 @@ func test() {
         }
         
         while totalRunCounter.value < 10000 {
-            usleep(1000)
+            sleep(0.0001)
         }
     }
 
