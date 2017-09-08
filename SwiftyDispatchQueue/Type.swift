@@ -8,8 +8,14 @@
 
 import Foundation
 
-typealias Lock      = Foundation.NSLock
-typealias Condition = Foundation.NSCondition
-typealias Thread    = Foundation.Thread
+typealias Lock          = Foundation.NSLock
+typealias Condition     = Foundation.NSCondition
+typealias ConditionLock = Foundation.NSConditionLock
+typealias Thread        = Foundation.Thread
+typealias Date          = Foundation.Date
 
 typealias DispatchBlock = () -> Void
+
+func usleep(_ seconds: useconds_t) {
+    _ = Foundation.usleep(seconds)
+}
