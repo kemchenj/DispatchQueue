@@ -21,7 +21,7 @@ class ThreadPool: ThreadPoolType {
     var blocks = [DispatchBlock]()
     
     func addBlock(_ block: @escaping DispatchBlock) {
-        locker.excuteWithLock(needSignal: true) {
+        locker.executeWithLock(needSignal: true) {
             blocks.append(block)
             
             let idleThreadCount = threadCount - activeThreadCount

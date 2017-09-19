@@ -9,7 +9,7 @@
 extension Lock {
     
     @inline(__always)
-    func excuteWithLock(_ block: DispatchBlock) {
+    func executeWithLock(_ block: DispatchBlock) {
         lock()
         
         block()
@@ -32,7 +32,7 @@ extension Condition {
     }
     
     @inline(__always)
-    func excuteWithLock(needSignal: Bool = false, _ block: DispatchBlock) {
+    func executeWithLock(needSignal: Bool = false, _ block: DispatchBlock) {
         lock()
         
         block()
@@ -41,3 +41,4 @@ extension Condition {
         unlock()
     }
 }
+    

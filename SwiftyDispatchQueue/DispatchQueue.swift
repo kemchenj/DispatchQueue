@@ -11,8 +11,8 @@ protocol DispatchQueueType {
     
     init(serial: Bool)
     
-    func async(_ block: @escaping DispatchBlock)
-    func sync(_ block: @escaping DispatchBlock)
+    func async(execute block: @escaping DispatchBlock)
+    func sync(execute block: @escaping DispatchBlock)
 }
 
 
@@ -33,8 +33,8 @@ class DispatchQueue: DispatchQueueType {
         self.serial = serial
     }
     
-    func async(_ block: @escaping DispatchBlock) {
-        locker.excuteWithLock {
+    func async(execute block: @escaping DispatchBlock) {
+        locker.executeWithLock {
             pendingBlocks.append(block)
             
             if serial && !serialRunning {
@@ -46,7 +46,7 @@ class DispatchQueue: DispatchQueueType {
         }
     }
     
-    func sync(_ block: @escaping DispatchBlock) {
+    func sync(execute block: @escaping DispatchBlock) {
         let condition = Condition()
         
         var done = false
@@ -54,7 +54,7 @@ class DispatchQueue: DispatchQueueType {
         async {
             block()
             
-            condition.excuteWithLock(needSignal: true) {
+            condition.executeWithLock(needSignal: true) {
                 done = true
             }
         }
@@ -66,14 +66,14 @@ class DispatchQueue: DispatchQueueType {
         threadPool.addBlock {
             var block: DispatchBlock!
             
-            self.locker.excuteWithLock {
+            self.locker.executeWithLock {
                 block = self.pendingBlocks.removeFirst()
             }
             
             block()
             
             if self.serial {
-                self.locker.excuteWithLock {
+                self.locker.executeWithLock {
                     if self.pendingBlocks.count > 0 {
                         self.dispatchOneBlock()
                     } else {
